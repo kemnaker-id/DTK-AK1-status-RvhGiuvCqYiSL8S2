@@ -112,6 +112,13 @@
             transition: background 0.3s;
         }
         .btn-close:hover { background: #f1f5f9; }
+
+        /* Style buat teks copyright */
+        .copyright {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #64748b;
+        }
     </style>
 </head>
 <body>
@@ -123,6 +130,8 @@
         <h2>Cek Status Kartu Kuning (AK1)</h2>
         <input type="text" id="nomorAK1" placeholder="Masukkan Nomor Pendaftaran (AK1)" autocomplete="off">
         <button class="btn-check" onclick="bukaModal()">Periksa Status</button>
+
+        <p class="copyright">Copyright &copy; 2026 Kementerian Ketenagakerjaan RI</p>
     </div>
 
     <div class="modal-overlay" id="modalNotif">
@@ -142,6 +151,14 @@
         const modalMsg = document.getElementById('modalMsg');
         const modalKotak = document.getElementById('modalKotak');
         const btnTutup = document.getElementById('btnTutup');
+
+        // --- TAMBAHAN BARU: EVENT LISTENER BIAR CUMA BISA HURUF & ANGKA + KAPITAL OTOMATIS ---
+        const inputNomor = document.getElementById('nomorAK1');
+        inputNomor.addEventListener('input', function() {
+            // Regex ini bakal ngebuang semua karakter selain a-z, A-Z, dan 0-9
+            // Terus .toUpperCase() bakal langsung ngubah ke huruf besar
+            this.value = this.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        });
 
         function bukaModal() {
             const val = document.getElementById('nomorAK1').value;
