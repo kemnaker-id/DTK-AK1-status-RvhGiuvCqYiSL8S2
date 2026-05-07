@@ -144,7 +144,7 @@
 
     <script>
         // MASUKIN URL WEB APP GAS LU DI SINI BOSS:
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwgjaDbi5dyWVzQmJrHOQmrAr3YSEgjOhLZ-VDXxutH-flY2NiqmkwKFo0HY7uXYEkt/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyNnzodeDfZ1S5gVfZK5Rg_QeIBM-npPppILq8olaJ-dT6-G7Um6SOdhMjXZsWs-yL0LA/exec';
 
         const modal = document.getElementById('modalNotif');
         const modalTitle = document.getElementById('modalTitle');
@@ -177,7 +177,7 @@
                 .then(data => {
                     if (data.status === "success") {
                         // Kalo ketemu di sheet
-                        let pesanSukses = `Halo Bapak/Ibu ${data.data.nama}.<br><br>Status pencetakan AK1 Anda saat ini:<br><b>${data.data.status}</b>`;
+                        let pesanSukses = `Halo Bapak/Ibu ${data.data.nama}.<br><br>Nomor Pendaftaran <b>${val}</b> ditemukan di sistem dengan status <b>${data.data.status}</b> sampai dengan tanggal <b>${data.data.expired}</b>`;
                         tampilkanNotif("Data Ditemukan", pesanSukses, "success");
                     } else {
                         // Kalo nomornya ga ada
